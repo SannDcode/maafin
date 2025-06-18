@@ -76,7 +76,7 @@ div.bungkus-line {
 }
 
 div.bungkus-line span.line {
-    width: 99%;
+    width: 95%;
     height: 2px;
     background-color: #666666;
     z-index: 0;
@@ -87,11 +87,15 @@ div.bungkus-line span.line {
     justify-content: center;
     align-items: center;
     width: 20%;
-    height: fit-content;
     transition: transform 1s ease, opacity 1s ease;
     transform: scale(1);
     opacity: 1;
     border-radius: 20px;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .swiper-slide {
@@ -99,10 +103,9 @@ div.bungkus-line span.line {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
-    height: 10%;
+    max-height: fit-content;
     background-color: #e9e9e9;
-    border-radius: 5px;
+    border-radius: 20px;
     transition: all 1s ease-in-out;
     gap: 10px;
 }
@@ -110,10 +113,12 @@ div.bungkus-line span.line {
 .swiper-slide span {
     text-align: center;
     width: 90%;
+    padding: 0 0 1.5dvh 0;
 }
 
 .swiper-slide img {
     border-radius: 10px;
+    margin: 1.5dvh 0 0 0;
 }
 
 .fade-out {
@@ -123,13 +128,11 @@ div.bungkus-line span.line {
 
 /* Awalnya hidden */
 #swiper-container-2 {
-transform: scale(0);
 opacity: 0;
 transition: all 1s ease;
 }
 #swiper-container-2.fade-in {
 opacity: 1;
-transform: scale(1);
 }
 
 #swiper-container-2 .swiper-slide {
@@ -144,115 +147,174 @@ transform: scale(1);
 
 /* player */
 .player {
-    width: 100%;
-    max-height: 100%;
-    background: #181818;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.7);
-    text-align: center;
-  }
-  .cover {
-    width: 23.4%;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-  }
-  .song-info {
-    margin-bottom: 10px;
-  }
-  .song-title {
+  width: 100%;
+  max-height: 100%;
+  background: #181818;
+  padding: 2dvh;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+  text-align: center;
+}
+.cover {
+  width: 60%;
+  border-radius: 15px;
+  margin-bottom: 7.5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+.song-info {
+  margin-bottom: 5px;
+}
+.song-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #ffffff;
+}
+.song-artist {
+  font-size: 14px;
+  color: #dddddd;
+}
+.progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #dddddd;
+}
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: #404040;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.progress-filled {
+  height: 100%;
+  background: #1DB954;
+  border-radius: 5px;
+  width: 0%;
+}
+.controls {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+.controls button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.controls button:active {
+  transform: scale(1.5);
+}
+#play-pause {
+  font-size: 32px;
+}
+.volume-container {
+  margin-top: 5px;
+}
+.volume {
+  width: 100%;
+}
+/* lirik */
+.lyrics-container {
+background-color: rgba(0, 0, 0, 0.5);
+padding: 15px;
+border-radius: 15px;
+color: white;
+max-height: 70px;
+overflow-y: auto;
+font-family: 'Cursive', sans-serif;
+text-align: center;
+}
+.lyrics-container p {
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+.lyrics-container p.active {
+    color: #00ff99;
     font-weight: bold;
-    font-size: 18px;
-    color: #ffffff;
-  }
-  .song-artist {
-    font-size: 14px;
-    color: #dddddd;
-  }
-  .progress-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 12px;
-    margin-bottom: 8px;
-    color: #dddddd;
-  }
-  .progress-bar {
-    position: relative;
-    width: 100%;
-    height: 6px;
-    background: #404040;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .progress-filled {
-    height: 100%;
-    background: #1DB954;
-    border-radius: 5px;
-    width: 0%;
-  }
-  .controls {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
-  .controls button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
-  .controls button:active {
-    transform: scale(1.5);
-  }
-  #play-pause {
-    font-size: 32px;
-  }
-  .volume-container {
-    margin-top: 15px;
-  }
-  .volume {
-    width: 100%;
-  }
-  /* lirik */
-  .lyrics-container {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    border-radius: 15px;
-    color: white;
-    max-height: 70px;
-    overflow-y: auto;
-    font-family: 'Cursive', sans-serif;
-    text-align: center;
-    }
-    .lyrics-container p {
-        margin: 5px 0;
-        opacity: 0.5;
-        transition: all 0.3s ease;
-    }
-    .lyrics-container p.active {
-        color: #00ff99;
-        font-weight: bold;
-        opacity: 1;
-        transform: scale(1.1);
-    }
+    transform: scale(1.1);
+}
 
+.swal2-popup {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
 
-    @media screen and (max-width: 1300px) {
-        .swiper {
-            width: 43%;
-        }
+#swal2-input {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+}
+
+@media screen and (max-width: 1300px) {
+  .swiper {
+      width: 43%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .swiper {
+      width: 50%;
     }
-    @media screen and (max-width: 1000px) {
-        .swiper {
-            width: 50%;
-        }
+  .header {
+      display: none;
     }
-    @media screen and (max-width: 830px) {
-        .swiper {
-            width: 60%;
-        }
-    }
+    div.dot-m {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      border-radius: 20px;
+      animation: anm-bg 10s infinite alternate;
+  }
+  
+  div.dot-m div.dot {
+      position: fixed;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background-color: var(--header);
+      display: flex;
+      justify-content: space-around;
+      padding: 0 10px;
+  }
+  
+  div.dot-m div.dot div {
+      background-color: #856f0c;
+      position: relative;
+      height: 18px;
+      width: 18px;
+      top: 20px;
+      border-radius: 50%;
+  }
+  
+  div.dot-m div.dot div::after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: -28px;
+      height: 40px;
+      width: 8px;
+      background-color: rgb(224, 224, 224);
+      border-radius: 4px;
+  }
+  div.bungkus-line span.line {
+    width: 90%;
+  }
+  .swiper-slide audio {
+    width: fit-content;
+  }
+}
+@media screen and (max-width: 830px) {
+  .swiper {
+      width: 70%;
+  }
+}
