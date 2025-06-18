@@ -24,7 +24,7 @@ async function showVerificationPopup() {
 
   Swal.fire({
     title: "VERIFIKASI BAHWA KAMU KELLA :3",
-    text: "Masukkan tanggal lahir isan",
+    text: "Masukkan tanggal lahir isan \n(format: Bulan/Tgl/Tahun)",
     input: "date",
     inputPlaceholder: "2004-03-25",
     confirmButtonText: "Verifikasi",
