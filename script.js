@@ -51,7 +51,7 @@ async function showVerificationPopup() {
     if (result.isConfirmed) {
       Swal.fire({
         title: "Verifikasi Berhasil!",
-        text: "Sebelum klik tombol <b>'OK'</b> kamu izinin audio atau suara untuk situs ini, pake headset juga biar bisa kedengeran.\n Setelah klik tombol <b>'OK'</b>, nanti kamu tinggal liatin saja.",
+        html: `Sebelum klik tombol <b>'OK'</b> kamu izinin audio atau suara untuk situs ini, pake headset juga biar bisa kedengeran.\n Setelah klik tombol <b>'OK'</b>, nanti kamu tinggal liatin saja.`,
         icon: "success",
         confirmButtonText: "OK",
       }).then(() => {
